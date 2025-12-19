@@ -20,10 +20,10 @@
   --btn-default-hover-bg: #222;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
-  --highlight-background: #f6f6f6;
-  --highlight-foreground: #2f3337;
-  --highlight-gutter-background: #e2e2e2;
-  --highlight-gutter-foreground: #42464a;
+  --highlight-background: #0d1117;
+  --highlight-foreground: #c9d1d9;
+  --highlight-gutter-background: #1f242a;
+  --highlight-gutter-foreground: #b6bdc5;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -413,124 +413,6 @@ code.hljs {
   padding: 3px 5px
 }
 /*!
-  Theme: StackOverflow Light
-  Description: Light theme as used on stackoverflow.com
-  Author: stackoverflow.com
-  Maintainer: @Hirse
-  Website: https://github.com/StackExchange/Stacks
-  License: MIT
-  Updated: 2021-05-15
-
-  Updated for @stackoverflow/stacks v0.64.0
-  Code Blocks: /blob/v0.64.0/lib/css/components/_stacks-code-blocks.less
-  Colors: /blob/v0.64.0/lib/css/exports/_stacks-constants-colors.less
-*/
-.hljs {
-  /* var(--highlight-color) */
-  color: #2f3337;
-  /* var(--highlight-bg) */
-  background: #f6f6f6
-}
-.hljs-subst {
-  /* var(--highlight-color) */
-  color: #2f3337
-}
-.hljs-comment {
-  /* var(--highlight-comment) */
-  color: #656e77
-}
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-meta .hljs-keyword,
-.hljs-doctag,
-.hljs-section {
-  /* var(--highlight-keyword) */
-  color: #015692
-}
-.hljs-attr {
-  /* var(--highlight-attribute); */
-  color: #015692
-}
-.hljs-attribute {
-  /* var(--highlight-symbol) */
-  color: #803378
-}
-.hljs-name,
-.hljs-type,
-.hljs-number,
-.hljs-selector-id,
-.hljs-quote,
-.hljs-template-tag {
-  /* var(--highlight-namespace) */
-  color: #b75501
-}
-.hljs-selector-class {
-  /* var(--highlight-keyword) */
-  color: #015692
-}
-.hljs-string,
-.hljs-regexp,
-.hljs-symbol,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-link,
-.hljs-selector-attr {
-  /* var(--highlight-variable) */
-  color: #54790d
-}
-.hljs-meta,
-.hljs-selector-pseudo {
-  /* var(--highlight-keyword) */
-  color: #015692
-}
-.hljs-built_in,
-.hljs-title,
-.hljs-literal {
-  /* var(--highlight-literal) */
-  color: #b75501
-}
-.hljs-bullet,
-.hljs-code {
-  /* var(--highlight-punctuation) */
-  color: #535a60
-}
-.hljs-meta .hljs-string {
-  /* var(--highlight-variable) */
-  color: #54790d
-}
-.hljs-deletion {
-  /* var(--highlight-deletion) */
-  color: #c02d2e
-}
-.hljs-addition {
-  /* var(--highlight-addition) */
-  color: #2f6f44
-}
-.hljs-emphasis {
-  font-style: italic
-}
-.hljs-strong {
-  font-weight: bold
-}
-.hljs-formula,
-.hljs-operator,
-.hljs-params,
-.hljs-property,
-.hljs-punctuation,
-.hljs-tag {
-  /* purposely ignored */
-  
-}
-@media (prefers-color-scheme: dark) {
-pre code.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 1em
-}
-code.hljs {
-  padding: 3px 5px
-}
-/*!
   Theme: GitHub Dark
   Description: Dark theme as seen on github.com
   Author: github.com
@@ -640,6 +522,36 @@ code.hljs {
   /* purposely ignored */
   
 }
+.highlight:hover .copy-btn,
+.code-container:hover .copy-btn {
+  opacity: 1;
+}
+.code-container {
+  position: relative;
+}
+.code-lang {
+  font-size: 40px;
+  line-height: 1;
+  opacity: 0.1;
+  pointer-events: none;
+  position: absolute;
+  right: 5px;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition: opacity 0.2s ease-in-out;
+  background-color: #eee;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  font-size: 0.8125em;
+  right: 4px;
+  top: 8px;
 }
 code,
 kbd,
@@ -1385,7 +1297,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff8e6e;
+    background: #cf70c9;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2821,4 +2733,8 @@ header.header {
   .pagination {
     margin-bottom: 10px;
   }
+}
+code {
+  color: #2f3337;
+  background-color: #f6f6f6;
 }

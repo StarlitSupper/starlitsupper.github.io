@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"github-dark","dark":"github-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="JS 的基础部分，包含语法和一些基本的概念，没有太深入，主要是简单了解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript：基础">
+<meta property="og:url" content="http://example.com/2025/12/18/JavaScript%EF%BC%9A%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="StarlitSupper&#39;s Sea">
+<meta property="og:description" content="JS 的基础部分，包含语法和一些基本的概念，没有太深入，主要是简单了解">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T21:48:36.000Z">
+<meta property="article:modified_time" content="2025-12-19T15:47:30.859Z">
+<meta property="article:author" content="Shark Melon">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/12/18/JavaScript%EF%BC%9A%E5%9F%BA%E7%A1%80/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/12/18/JavaScript%EF%BC%9A%E5%9F%BA%E7%A1%80/","path":"2025/12/18/JavaScript：基础/","title":"JavaScript：基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript：基础 | StarlitSupper's Sea</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">StarlitSupper's Sea</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E6%98%93%E8%AF%AD%E6%B3%95"><span class="nav-text">简易语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="nav-text">字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AF%AD%E5%8F%A5"><span class="nav-text">输入输出语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">模板字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E4%B8%8E%E7%B1%BB%E5%9E%8B"><span class="nav-text">变量与类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-text">声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D"><span class="nav-text">变量命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87"><span class="nav-text">变量提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">数据类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="nav-text">匿名函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">函数表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0"><span class="nav-text">立即执行函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1"><span class="nav-text">对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1"><span class="nav-text">遍历对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="nav-text">内置对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shark Melon"
+      src="/srkm.jpg">
+  <p class="site-author-name" itemprop="name">Shark Melon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/starlitsupper" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;starlitsupper" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:starlitsupper@gmail.com" title="E-Mail → mailto:starlitsupper@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/12/18/JavaScript%EF%BC%9A%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/srkm.jpg">
+      <meta itemprop="name" content="Shark Melon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="StarlitSupper's Sea">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript：基础 | StarlitSupper's Sea">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript：基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-18 05:48:36" itemprop="dateCreated datePublished" datetime="2025-12-18T05:48:36+08:00">2025-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-19 23:47:30" itemprop="dateModified" datetime="2025-12-19T23:47:30+08:00">2025-12-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>JavaScript 是一门跨平台、面向对象的脚本语言，可以实现网页的交互。</p>
+<p>引入位置：可以在 <code>&lt;head&gt;</code> 标签和 <code>&lt;body&gt;</code> 标签内引入，但最好是在 <code>&lt;body&gt;</code> 的末尾，这样可以确保 JS 引入时，HTML 元素已完全加载。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;main.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="title function_">alert</span>(<span class="string">&#x27;This is an example!&#x27;</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>组成：ECMAScript、Web APIs（DOM、BOM）</p>
+<h2 id="简易语法"><a href="#简易语法" class="headerlink" title="简易语法"></a>简易语法</h2><p>JavaScript <strong>区分大小写</strong>，语句使用 <code>;</code> 进行分隔，由于存在 ASI 机制，分号除特殊情况外非必须，具体看项目约定。</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 这是</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><p>其实就是直接给出的固定值，比如说：</p>
+<p><code>[1, 2, 3, 4]</code> 是数组字面量；<code>2</code> 是数字字面量；<code>‘鲨瓜’</code> 是字符串字面量等。</p>
+<h3 id="输入输出语句"><a href="#输入输出语句" class="headerlink" title="输入输出语句"></a>输入输出语句</h3><p>弹窗获取用户输入：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">prompt</span>(<span class="string">&#x27;请输入您的年龄：&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>向网页输出内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;&lt;h1&gt;神秘标题&lt;/h1&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>可以将内容写入到 body 内，写入标签能被解析成网页元素。</p>
+<p>弹窗提示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>(<span class="string">&#x27;一些文本内容&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>控制台输出：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调试可用&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><p>必须使用 <code>`</code> 来包裹字符串，用 <code>‘&#39;</code> 或 <code>“”</code> 不行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`鲨瓜今年<span class="subst">$&#123;x&#125;</span>岁了`</span>)	<span class="comment">// 里面也可以运算</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="变量与类型"><a href="#变量与类型" class="headerlink" title="变量与类型"></a>变量与类型</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><p>JavaScript 有三种声明方式：</p>
+<ul>
+<li><code>var</code> ：声明一个函数作用域或全局作用域的变量</li>
+<li><code>let</code>：声明一个块级作用域的局部变量</li>
+<li><code>const</code>：声明一个块级作用域的<strong>只读</strong>命名常量，必须初始化</li>
+</ul>
+<h3 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h3><p>JS 标识符可以包含字母、下划线（<code>_</code>）、美元符号（<code>$</code>）和数字（数字不能用于开头）。</p>
+<p>一般来说，JS 使用小驼峰命名法给变量命名：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> userName = <span class="string">&#x27;鲨瓜&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><p>这个现象出现在用 <code>var</code>  声明的变量上，该变量所在的作用域的任意位置都可以引用该变量。</p>
+<p>来个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x)	<span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x)	<span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<p>很容易发现 <code>var</code> 声明的变量仅提升了声明，相当于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x)	<span class="comment">// undefined</span></span><br><span class="line">x = <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>基本数据类型：</p>
+<ul>
+<li>Number：数字型（整数或浮点数）</li>
+<li>String：字符串</li>
+<li>Boolean：布尔型，<code>true</code> 和 <code>false</code></li>
+<li>undefined：未定义值</li>
+<li>null：表示空值，但对它使用 <code>typeof</code> 时，会返回 <code>object</code></li>
+</ul>
+<p>前面的都比较常见，后面还加了两个基本数据类型：</p>
+<ul>
+<li>Symbol：唯一标识符</li>
+<li>BigInt：任意精度的整数</li>
+</ul>
+<p>引用数据类型：Object</p>
+<p>可以使用 <code>typeof</code> 运算符来确定类型，但是 <code>typeof null</code> 是历史遗留问题没啥办法解决。</p>
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><p>JS 变量的类型在运行时确定，且可以动态改变，因此可以通过重新赋值来进行类型转换。</p>
+<p>隐式转换：</p>
+<ul>
+<li>字符串 + 数字型时，会转换为字符串的拼接</li>
+<li>其他时候一般是字符串转换为数字型进行运算</li>
+<li>字符串前面单加一个 <code>+</code> 会自动转换为 Number 型</li>
+</ul>
+<p>显式转换：</p>
+<ul>
+<li><code>Number()</code>：转换为数字型</li>
+<li><code>Boolean()</code>：转换为布尔型</li>
+<li><code>parseInt()</code>：字符串或数字只保留整数部分，参数可选（进制），跟下面那个都只能处理开头</li>
+<li><code>parsseFloat()</code>：返回浮点数</li>
+</ul>
+<p>其实还有别的，这里就先不提了。</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>和其他编程语言差不多：</p>
+<p>算术运算符：<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>，特别注意 <code>**</code> （指数运算）</p>
+<p>赋值运算符：<code>=</code>、<code>+=</code>、<code>-=</code> 等</p>
+<p>一元运算符：<code>++</code>、<code>--</code></p>
+<p>比较运算符：<code>&gt;</code>、<code>&gt;=</code>、<code>&lt;</code>、<code>&lt;=</code></p>
+<ul>
+<li>注意点：<code>==</code>（值相等）、<code>!=</code>（宽松不等）、<code>===</code>（类型和值全等）、<code>!==</code>（严格不等）</li>
+</ul>
+<p>逻辑运算符：<code>&amp;&amp;</code>、<code>||</code>、<code>!</code></p>
+<p>三元运算符：<code>条件?表达式1:表达式2</code></p>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><p>这个和 C 基本上一样的，潦草地略过一下。</p>
+<p>分支语句：<code>if</code> 语句和 <code>switch</code> 语句</p>
+<p>循环语句：<code>while</code> 循环、<code>do-while</code> 和 <code>for</code> 循环</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数组是一种<strong>有序</strong>的数据集合，可以把多个数据存储到单个变量中。</p>
+<p>数组中下标从 0 开始，数组长度可以通过 <code>array.length</code> 获取。</p>
+<p>数组操作（增删查改）：</p>
+<ul>
+<li><p>查：直接通过对应下标</p>
+</li>
+<li><p>改：选出对应数据重新赋值</p>
+</li>
+<li><p>增删：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加在末尾，可以写多个</span></span><br><span class="line">arr.<span class="title function_">push</span>(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)	<span class="comment">// arr=[1, 2, 3, 4, 5, 6]</span></span><br><span class="line"><span class="comment">// 加在开头，可以写多个</span></span><br><span class="line">arr.<span class="title function_">unshift</span>(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)	<span class="comment">// arr=[4, 5, 6, 1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除最后一个元素</span></span><br><span class="line">arr.<span class="title function_">pop</span>()		<span class="comment">// arr=[1, 2]</span></span><br><span class="line"><span class="comment">// 移除第一个元素</span></span><br><span class="line">arr.<span class="title function_">shift</span>()		<span class="comment">// arr=[2, 3]</span></span><br><span class="line"><span class="comment">// 移除对应元素</span></span><br><span class="line">arr.<span class="title function_">splice</span>(<span class="number">1</span>, <span class="number">1</span>)	<span class="comment">// 第一个参数为下标，第二个为删除个数 arr=[1, 3]</span></span><br></pre></td></tr></table></figure>
+
+<p>在 <code>arr.splice()</code> 里参数后面加上的东西是加在删除位置上的新数据。</p>
+</li>
+</ul>
+<p>遍历数组：通过 <code>for</code> 循环实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 具体操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>函数是可重复使用的代码块，用于执行特定任务。</p>
+<p>传统的函数定义由 <code>function</code> 关键字、函数名称、参数列表和函数体组成。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getSum</span> (<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>return</code> 用来设置函数的返回值，没有时返回 <code>undefined</code>。</p>
+<p>调用的时候就按照对应格式调就行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">getSum</span>(<span class="number">1</span>, <span class="number">2</span>))	<span class="comment">// 实际上起到作用的是函数名后面的()</span></span><br></pre></td></tr></table></figure>
+
+<p>函数的命名规范：小驼峰命名法，前缀最好用动词。</p>
+<p>比较常用的动词约定：</p>
+<ul>
+<li>can：判断是否可执行某个动作</li>
+<li>has：判断是否含有某个值</li>
+<li>is：判断是否为某个值</li>
+<li>get：获取某个值</li>
+<li>set：设置某个值</li>
+<li>load：加载某些数据</li>
+</ul>
+<p>需要传参的时候，就要设置函数的参数，实参可以少于形参，未赋值的以 <code>undefined</code> 代入。</p>
+<p>JS 解释器会将函数声明提升到当前作用域的顶部，调用时位置在 函数声明上面也可以正常运行。</p>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><h4 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h4><p>将匿名函数赋给一个变量，通过变量名进行调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sayHi = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;Hello!&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sayHi</span>()</span><br></pre></td></tr></table></figure>
+
+<p>函数表达式因为有变量，所以不适用函数提升。</p>
+<h4 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h4><p>现在好像不常用了，但是可以了解一下。</p>
+<p>它主要用于避免全局变量之间的污染：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span> (<span class="params"></span>)&#123;&#125;)();	<span class="comment">// 这个前面或者后面要加分号，避免再遇到括号合并了</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>对象是键值对的无序集合，用于存储和组织复杂数据。</p>
+<p>创建对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>()</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;	<span class="comment">// 简洁，性能好，常用</span></span><br></pre></td></tr></table></figure>
+
+<p>对象里面可以放属性和方法，用 <code>,</code> 分隔：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shark = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;melon&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="attr">gender</span>: <span class="string">&#x27;female&#x27;</span>,</span><br><span class="line">    <span class="attr">study</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;		<span class="comment">// 方法</span></span><br><span class="line">        <span class="title function_">alert</span>(<span class="string">&#x27;幼年鲨瓜学习中，请稍后再找鲨瓜！&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>访问对象里的属性主要有两种方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shark.<span class="property">age</span>	<span class="comment">// 最常用</span></span><br><span class="line">shark[<span class="string">&#x27;age&#x27;</span>]	<span class="comment">// 特定场景会用到</span></span><br></pre></td></tr></table></figure>
+
+<p>调用对象方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shark.<span class="title function_">study</span>()	<span class="comment">// 一般都是直接调</span></span><br></pre></td></tr></table></figure>
+
+<p>增和改其实语法上是一样的，主要看原先有没有这个属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shark.<span class="property">age</span> = <span class="number">4</span>		<span class="comment">// 修改年龄</span></span><br><span class="line">shark.<span class="property">length</span> = <span class="number">55</span>	<span class="comment">// 新增 length 属性</span></span><br></pre></td></tr></table></figure>
+
+<p>删除属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> shark.<span class="property">gender</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历对象"><a href="#遍历对象" class="headerlink" title="遍历对象"></a>遍历对象</h3><p>对 <code>Object</code> 的属性遍历可以使用 <code>for in</code> 语句：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> shark) &#123;	<span class="comment">// key 是字符串</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(key)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(shark[key])	<span class="comment">// 本质上就是方括号调用属性</span></span><br><span class="line">&#125;	<span class="comment">// 这个时候输出依序：name melon ...</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h3><p>JS 本身是有预定义好的内置对象的，比较常用的有 <code>Math</code>。</p>
+<p><code>Math</code> 存储了一系列的数学运算方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">random</td>
+<td align="center">生成 [0, 1) 的随机数</td>
+</tr>
+<tr>
+<td align="center">ceil</td>
+<td align="center">向上取整</td>
+</tr>
+<tr>
+<td align="center">floor</td>
+<td align="center">向下取整</td>
+</tr>
+<tr>
+<td align="center">max</td>
+<td align="center">取最大值</td>
+</tr>
+<tr>
+<td align="center">min</td>
+<td align="center">取最小值</td>
+</tr>
+<tr>
+<td align="center">pow</td>
+<td align="center">幂运算</td>
+</tr>
+<tr>
+<td align="center">abs</td>
+<td align="center">绝对值</td>
+</tr>
+</tbody></table>
+<p>要使用内置对象的方法可以查阅相关的官方文档。</p>
+<p>需要取 <code>N-M</code> 之间的随机数时：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> random = <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*(M-N+<span class="number">1</span>))+N</span><br></pre></td></tr></table></figure>
+
+<p>本质上就是通过扩大倍数与向下取整来保证能取到区间边缘值。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide">JavaScript 指南 - JavaScript | MDN</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Y84y1L7Nn/">javascript入门到精通教程</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/12/18/CSS%EF%BC%9AGrid%E5%B8%83%E5%B1%80/" rel="prev" title="CSS：Grid布局">
+                  <i class="fa fa-angle-left"></i> CSS：Grid布局
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Shark Melon</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
